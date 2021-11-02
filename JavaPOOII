@@ -1,43 +1,105 @@
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
+
+
+class Persona{
+
+//Declaro los atributos que va a usar la clase
+    String nombre;
+    String apellido;
+    int edad;
+    String hobbie;
+    String editorFav;
+    String usaOS;
+
+//setters individuales, sea el caso que lo necesite. Para el caso, solo los coloco como comentario.
+//    public void setNombre(String newNombre){
+//        this.nombre=newNombre;
+//    }
+//    public void setApellido(String apellido) {
+//        this.apellido = apellido;
+//    }
+//    public void setEdad(int edad) {
+//        this.edad = edad;
+//    }
+//    public void setHobbie(String hobbie) {
+//        this.hobbie = hobbie;
+//    }
+//    public void setUsaOS(String usaOS) {
+//        this.usaOS = usaOS;
+//    }
+//    public void setEditorFav(String editorFav) {
+//        this.editorFav = editorFav;
+//    }
+
+    //declaro un setter general
+
+    public void setAll(String[] array){
+
+        this.nombre=array[0];
+        this.apellido=array[1];
+        this.edad=Integer.parseInt(array[2]);
+        this.hobbie=array[3];
+        this.editorFav=array[4];
+        this.usaOS=array[5];
+    }
+
+    //declaro getters
+
+    public String getNombre(){
+        return nombre;
+    }
+    public String getApellido(){
+        return apellido;
+    }
+    public String getHobbie(){
+        return hobbie;
+    }
+    public String getEditorFav(){
+        return editorFav;
+    }
+    public String getUsaOS(){return usaOS;}
+    public String getEdad(){
+        return Integer.toString(edad);
+    }
+    //Declaro métodos
+
+    public void getAll(){
+        String texto= "Hola! "+getApellido()+", "+getNombre()+"\n";
+        String texto2= "Tu edad es: " + getEdad()+"\n";
+        String texto3="Tu hobbie es: "+getHobbie()+"\n";
+        String texto4="Tu editor de codigo favorito es: " +getEditorFav()+" y usas el siguiente Sistema Operativo: "+getUsaOS()+"\n";
+        System.out.println(texto+texto2+texto3+texto4);
+    }
+}
 
 public class JavaPOO1 {
     public static void main(String[] args) {
 
-//        Crear un programa en java en el cual se pida al usuario ingresar:
-//        su nombre, apellido, edad, hobbie, editor de código preferido, sistema operativo que utiliza,
-//        luego deberá mostrarse por consola los datos ingresados.
-//        El programa deber ser subido a un repositorio de GitHub, pegar el link del ejercicio resuelto en el siguiente recuadro
+        String[] lista={"Nombre","Apellido","Edad","Hobbie","Editor Favorito","Sistema Operativo que usas"};
+        String[] array;
+        array = new String[6];
 
+//creo el objeto con el nombre persona.
+        Persona persona=new Persona();
+//ingreso los valores por medio de un Scanner
+        Scanner input=new Scanner(System.in);
 
-        //Declaro el objeto para ingresar valores.
-        Scanner stringInput= new Scanner(System.in);
-        Scanner integerInput= new Scanner(System.in);
+        System.out.println("Hola! Vamos a ingresar tus datos para darte de alta!\n");
+        for (int i=0; i < lista.length; i++){
 
-        //Escribo las opciones a ser requeridas
+            System.out.println("Ingresá el siguiente dato: "+ lista[i]);
+            String valor=input.nextLine();
 
-        System.out.println("Ingrese su nombre\n");
-        String nombre=stringInput.nextLine();
-        System.out.println("Ingrese su apellido\n");
-        String apellido=stringInput.nextLine();
-        System.out.println("Ingrese su edad\n");
-        Integer edad= integerInput.nextInt();
-        System.out.println("Ingrese su hobbie\n");
-        String hobbie= stringInput.nextLine();
-        System.out.println("Ingrese su editor de código preferido\n");
-        String codigoPreferido= stringInput.nextLine();
-        System.out.println("Ingrese el S.O. que utiliza \n");
-        String sistemaOperativo=stringInput.nextLine();
-
-
-        //Ejecuto el texto a mostrar
-
-        String textoSacar="Hola! " + apellido + ", "+nombre+" de "+ edad +"años.\n";
-        String valoresExtras="Tu hobbie es: "+hobbie+ ". Tu editor de código favorito es: "+ codigoPreferido + " y lo usas en: "+sistemaOperativo+".\n";
-        String despedida="Gracias por ingresar tus datos";
-
-        System.out.println(textoSacar+valoresExtras+despedida);
-
+            array[i]=valor;
+        }
+        //Seteo los valores pedidos en el Setter correspondiente.
+        persona.setAll(array);
+        //Imprimo los valores ingresados por consola.
+        persona.getAll();
     }
 
 }
+
