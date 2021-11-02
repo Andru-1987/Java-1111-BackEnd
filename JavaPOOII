@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+
+public class JavaPOO1 {
+    public static void main(String[] args) {
+
+//        Crear un programa en java en el cual se pida al usuario ingresar:
+//        su nombre, apellido, edad, hobbie, editor de código preferido, sistema operativo que utiliza,
+//        luego deberá mostrarse por consola los datos ingresados.
+//        El programa deber ser subido a un repositorio de GitHub, pegar el link del ejercicio resuelto en el siguiente recuadro
+
+
+        //Declaro el objeto para ingresar valores.
+        Scanner stringInput= new Scanner(System.in);
+        Scanner integerInput= new Scanner(System.in);
+
+        //Escribo las opciones a ser requeridas
+
+        System.out.println("Ingrese su nombre\n");
+        String nombre=stringInput.nextLine();
+        System.out.println("Ingrese su apellido\n");
+        String apellido=stringInput.nextLine();
+        System.out.println("Ingrese su edad\n");
+        Integer edad= integerInput.nextInt();
+        System.out.println("Ingrese su hobbie\n");
+        String hobbie= stringInput.nextLine();
+        System.out.println("Ingrese su editor de código preferido\n");
+        String codigoPreferido= stringInput.nextLine();
+        System.out.println("Ingrese el S.O. que utiliza \n");
+        String sistemaOperativo=stringInput.nextLine();
+
+
+        //Ejecuto el texto a mostrar
+
+        String textoSacar="Hola! " + apellido + ", "+nombre+" de "+ edad +"años.\n";
+        String valoresExtras="Tu hobbie es: "+hobbie+ ". Tu editor de código favorito es: "+ codigoPreferido + " y lo usas en: "+sistemaOperativo+".\n";
+        String despedida="Gracias por ingresar tus datos";
+
+        System.out.println(textoSacar+valoresExtras+despedida);
+
+    }
+
+}
